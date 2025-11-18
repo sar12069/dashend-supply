@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABOUT — DASHEND SUPPLY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #8B4513;
+      --accent-light: #a35b25;
+      --bg: #f9f9fb;
+      --muted: #555;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      color: #0f172a;
+      background: linear-gradient(180deg, #ffffff, #f6f8fb);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* Fondo SVG animado */
+    .svg-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.12;
+    }
+
+    .svg-bg svg {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      fill: var(--accent);
+      animation: float 25s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 75px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #222;
+      margin: 0 12px;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(139,69,19,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-light);
+      transform: translateY(-3px);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background: url('assets/fondo.jpeg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 140px 20px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--accent);
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+      letter-spacing: 1px;
+      animation: slideDown 1.5s ease-out;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    section h2 {
+      font-size: 38px;
+      color: var(--accent);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+    }
+
+    section p {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    section p:hover { transform: scale(1.02); }
+
+    .section-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .section-btn:hover {
+      background: var(--accent-light);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      background: #0b1220;
+      color: #e6eef8;
+      text-align: center;
+      padding: 40px 10px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 50px; }
+      section h2 { font-size: 30px; }
+      section p { font-size: 16px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fondo SVG animado -->
+  <div class="svg-bg">
+    <svg style="left:10%; animation-delay:0s;" viewBox="0 0 24 24"><path d="M12 2C7.589 2 4 5.589 4 10v4l-2 2v2h20v-2l-2-2v-4c0-4.411-3.589-8-8-8zM12 22c1.104 0 2-.896 2-2H10c0 1.104.896 2 2 2z"/></svg>
+    <svg style="left:30%; animation-delay:3s;" viewBox="0 0 24 24"><path d="M10 2v2H5v14h14V4h-5V2h7v18H3V2h7zm-2 4h8v10H8V6z"/></svg>
+    <svg style="left:50%; animation-delay:6s;" viewBox="0 0 24 24"><path d="M2 21h20v-2H2v2zm12-18h-4v10H5l7 7 7-7h-5V3z"/></svg>
+    <svg style="left:70%; animation-delay:1s;" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm16-2v2h2v-2h-2zM7 13h10v-2H7v2z"/></svg>
+    <svg style="left:90%; animation-delay:5s;" viewBox="0 0 24 24"><path d="M7 2v11h10V2H7zm8 9H9V4h6v7zM5 22h14v-7H5v7z"/></svg>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <div><strong>DASHEND SUPPLY</strong></div>
+        <div>
+          <a href="index.html">Home</a>
+          <a href="catalog.html">Catalog</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <a class="btn" href="catalog.html">Request Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>ABOUT DASHEND SUPPLY</h1>
+    </div>
+  </section>
+
+  <!-- SECTIONS -->
+  <section id="who">
+    <h2>WHO WE ARE</h2>
+    <p>
+      At DASHEND SUPPLY, we are a company dedicated to the distribution of electronic supplies, cleaning products, 
+      and a wide range of essential materials for maintenance and operation of restaurants, apartments, homes, and businesses.
+    </p>
+    <a href="catalog.html" class="section-btn">Learn More</a>
+  </section>
+
+  <section id="mission">
+    <h2>MISSION</h2>
+    <p>
+      We provide efficient, reliable, and high-quality service to our clients, strengthening partnerships based on trust and responsibility.
+    </p>
+    <a href="catalog.html" class="section-btn">Explore Our Work</a>
+  </section>
+
+  <section id="vision">
+    <h2>VISION</h2>
+    <p>
+      To be recognized nationwide for quality, reliability, and customer satisfaction, supporting sustainable growth and community success.
+    </p>
+    <a href="contact.html" class="section-btn">Contact Us</a>
+  </section>
+
+  <footer>
+    © <span id="year"></span> DASHEND SUPPLY LLC — All Rights Reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
